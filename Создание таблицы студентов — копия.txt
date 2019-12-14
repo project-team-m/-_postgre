@@ -1,0 +1,100 @@
+drop table if exists address CASCADE;
+drop table if exists addressh CASCADE;
+drop table if exists groupstud CASCADE;
+drop table if exists groupstudh CASCADE;
+drop table if exists loading CASCADE;
+drop table if exists loadingh CASCADE;
+drop table if exists parents CASCADE;
+drop table if exists parentsh CASCADE;
+drop table if exists people CASCADE;
+drop table if exists peopleh CASCADE;
+drop table if exists rating CASCADE;
+drop table if exists ratingh CASCADE;
+drop table if exists student CASCADE;
+drop table if exists studenth CASCADE;
+drop table if exists subject CASCADE;
+drop table if exists subjecth CASCADE;
+drop table if exists teacher CASCADE;
+drop table if exists teacherh CASCADE;
+drop table if exists trainingdirection CASCADE;
+drop table if exists trainingdirectionh CASCADE;
+
+CREATE TABLE IF NOT EXISTS Address(
+IDAddress serial PRIMARY KEY,
+City VARCHAR(30),
+Street VARCHAR(30),
+House VARCHAR(30),
+Room VARCHAR(30),
+IndexAddress INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS People(
+IDPeople serial PRIMARY KEY,
+Family VARCHAR(50),
+Name VARCHAR(30),
+Patronymic VARCHAR(30),
+FloorPeople VARCHAR(1),
+Nphone VARCHAR(12),
+IDAddress INTEGER,
+FOREIGN KEY (IDAddress) REFERENCES Address(IDAddress) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS TrainingDirection(
+idtrainingdirection serial PRIMARY KEY,
+Name VARCHAR(50),
+Cipher VARCHAR(15)
+);
+
+CREATE TABLE IF NOT EXISTS GroupStud(
+IDGroup serial PRIMARY KEY,
+GroupName VARCHAR(10),
+IDTrainingDirection INTEGER,
+FOREIGN KEY (IDTrainingDirection) REFERENCES TrainingDirection(IDTrainingDirection) ON DELETE CASCADE,
+Course INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Student(
+IDStudent serial PRIMARY KEY,
+IDPeople INTEGER,
+IDGroup INTEGER,
+FOREIGN KEY (IDPeople) REFERENCES People(IDPeople) ON DELETE CASCADE ,
+FOREIGN KEY (IDGroup) REFERENCES GroupStud(IDGroup) ON DELETE CASCADE ,
+Nzach VARCHAR(15)
+);
+
+CREATE TABLE IF NOT EXISTS Teacher(
+IDTeacher serial PRIMARY KEY,
+IDPeople INTEGER,
+FOREIGN KEY (IDPeople) REFERENCES People(IDPeople) ON DELETE CASCADE,
+Experience INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Subject(
+id serial PRIMARY KEY,
+SubjectName VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS Loading(
+id serial PRIMARY KEY,
+IDTeacher INTEGER,
+FOREIGN KEY (IDTeacher) REFERENCES Teacher(IDTeacher) ON DELETE CASCADE,
+IDSubject INTEGER,
+FOREIGN KEY (IDSubject) REFERENCES Subject(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Rating(
+id serial PRIMARY KEY,
+IDSubject INTEGER,
+FOREIGN KEY (IDSubject) REFERENCES Subject(id) ON DELETE CASCADE,
+Rating INTEGER,
+IDStudent INTEGER,
+FOREIGN KEY (IDStudent) REFERENCES Student(IDStudent) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Parents(
+IDParents serial PRIMARY KEY,
+IDPeople INTEGER,
+FOREIGN KEY (IDPeople) REFERENCES People(IDPeople) ON DELETE CASCADE,
+IDStudent INTEGER,
+FOREIGN KEY (IDStudent) REFERENCES Student(IDStudent) ON DELETE CASCADE
+);

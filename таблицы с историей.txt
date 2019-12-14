@@ -1,0 +1,88 @@
+CREATE TABLE IF NOT EXISTS AddressH(
+IDAddress integer,
+City VARCHAR(30),
+Street VARCHAR(30),
+House VARCHAR(30),
+Room VARCHAR(30),
+IndexAddress INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS PeopleH(
+IDPeople integer,
+Family VARCHAR(50),
+Name VARCHAR(30),
+Patronymic VARCHAR(30),
+FloorPeople VARCHAR(1),
+Nphone VARCHAR(12),
+IDAddress INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS TrainingDirectionH(
+idtrainingdirection integer,
+Name VARCHAR(50),
+Cipher VARCHAR(15),
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS GroupStudH(
+IDGroup integer,
+GroupName VARCHAR(10),
+IDTrainingDirection INTEGER,
+Course INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS StudentH(
+IDStudent integer,
+IDPeople INTEGER,
+IDGroup INTEGER,
+Nzach VARCHAR(15),
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS TeacherH(
+IDTeacher integer,
+IDPeople INTEGER,
+Experience INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS SubjectH(
+id integer,
+SubjectName VARCHAR(50),
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS LoadingH(
+id integer,
+IDTeacher INTEGER,
+IDSubject INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS RatingH(
+id integer,
+IDSubject INTEGER,
+Rating INTEGER,
+IDStudent INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);
+
+CREATE TABLE IF NOT EXISTS ParentsH(
+IDParents integer,
+IDPeople INTEGER,
+IDStudent INTEGER,
+Edit varchar(15),
+Time_edit timestamp
+);

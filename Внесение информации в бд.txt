@@ -1,0 +1,59 @@
+INSERT INTO address(IDAddress,City,Street,HOUSE,room,IndexAddress)
+VALUES ('0','Ростов - на - Дону','ул. Мечникова', '79А', '536', '346000');
+
+INSERT INTO address(IDAddress,City,Street,HOUSE,room,IndexAddress)
+VALUES ('1','Ростов - на - Дону','пл. Гагарина 1', '1', '384', '346000');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('0','Колесниченко','Александр','Васильевич','М','+79611234580','0');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('1','Недомерков','Иван','Сергеевич','М','+79611234567','0');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('2','Новиков','Сергей','Петрович','М','+79611234566','0');
+
+INSERT INTO trainingdirection(idtrainingdirection,name,cipher)
+VALUES ('0','Программная инженерия','09.03.04');
+
+INSERT INTO groupstud(idgroup,groupname,idtrainingdirection,course)
+VALUES ('0','ВПР31','0','3');
+
+INSERT INTO student(idStudent,IDPeople,IDGroup,NZach)
+VALUES ('0','0','0','1774783');
+
+INSERT INTO student(idStudent,IDPeople,IDGroup,NZach)
+VALUES ('1','1','0','1774782');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('3','Колесниченко','Василий','Петрович','М','+79611234565','1');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('4','Поркшеян','Виталий','Маркосович','М','+79611234564','1');
+
+INSERT INTO people(IDPeople,Family,Name,Patronymic,FloorPeople,NPhone,IDAddress)
+VALUES ('5','Ляхницкая','Ольга','Владимировна','Ж','+79611234563','1');
+
+INSERT INTO subject(ID,SubjectName)
+VALUES ('0','БД');
+
+INSERT INTO subject(ID,SubjectName)
+VALUES ('1','C#');
+
+INSERT INTO Rating(ID,IDSubject,Rating,IDStudent)
+VALUES ('4','0','5','0');
+
+INSERT INTO Teacher(IDTeacher,IDPeople,Experience)
+VALUES ('0','2','10');
+
+INSERT INTO Teacher(IDTeacher,IDPeople,Experience)
+VALUES ('1','5','10');
+
+INSERT INTO loading(IDTeacher,IDSubject)
+VALUES ('0','0');
+
+INSERT INTO loading(IDTeacher,IDSubject)
+VALUES ('1','1');
+
+INSERT INTO parents(IDParents,IDPeople,IDStudent)
+VALUES ('0','3','0');
