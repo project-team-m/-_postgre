@@ -12,7 +12,7 @@ namespace КурсоваяБД
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] loginMas = new string[] { "Студент", "Преподаватель", "Админ" };
+            string[] loginMas = new string[] { "Студент", "Преподаватель", "Админ" }; 
 
             if(login.Text == loginMas[0])
             {
